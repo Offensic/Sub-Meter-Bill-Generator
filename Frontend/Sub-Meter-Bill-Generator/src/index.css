@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.bg-color {
+    background-color: #165F6C;
+}
+
+.btn-color {
+    background-color: #528591;
+}
+
+.btn-color:hover {
+    background-color: #27aac1;
+}
+
+
+
+
+@media print {
+    @page {
+        margin: 0;
+        /* remove page margins (optional) */
+        size: A4;
+        /* set to A4 size */
+    }
+
+    body {
+        -webkit-print-color-adjust: exact;
+        /* keep colors same as screen */
+        print-color-adjust: exact;
+        padding: 0;
+        margin: 0;
+
+    }
+
+    /* Hide browser header/footer (date, URL, page number) */
+    /* 👉 Matlab: “Print ke waqt page ke upar-neeche koi extra content (URL, date, etc.) na dikhana.” */
+    /* ⚠️ Note: Chrome me ye directives ignore ho sakte hain (security reasons), lekin kuch browsers me kaam karte hain. */
+    @page {
+        @bottom-left {
+            content: none !important;
+        }
+
+        @bottom-right {
+            content: none !important;
+        }
+
+        @top-left {
+            content: none !important;
+        }
+
+        @top-right {
+            content: none !important;
+        }
+    }
+
+
+    /* Optional: hide buttons when printing */
+    button {
+        display: none !important;
+    }
+
+}
+
+
+@media print {
+    #invoice {
+        background: white !important;
+        /* 👈 remove black color */
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 210mm;
+    }
+}
