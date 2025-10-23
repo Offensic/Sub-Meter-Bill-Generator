@@ -8,7 +8,7 @@ function ContextProvider(props) {
 
 const [invoice, setInvoice] = useState({
         Bill_To: " ",
-        Date: "Octuber-5-2025",
+        Date: "",
         Due_date: "",
         Reference_no: "",
         Meter_no: "",
