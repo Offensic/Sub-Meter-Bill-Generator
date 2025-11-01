@@ -19,29 +19,29 @@ const InvoicePage = () => {
     };
 
     // ✅ Step 1: Check if required fields exist
-    const isValid = invoice?.Meter_no && invoice?.Bill_to && invoice.Due_date;
+    // const isValid = invoice?.Meter_no && invoice?.Bill_to && invoice.Due_date;
 
     // ✅ Step 2: If invalid, redirect immediately (no flash)
-    if (!isValid) {
-        return <Navigate to="/" replace />;
-    }
+    // if (!isValid) {
+    //     return <Navigate to="/" replace />;
+    // }
     useEffect(() => {
         console.log(invoice.Due_date)
-        const SubTotal = Number(invoice.Units) * Number(invoice.Unit_price) + Number(invoice.Tax);
+        const SubTotal = Number(invoice.Units) * Number(invoice.Unit_price) + Number(invoice.Rent);
         console.log('SubTotal', SubTotal)
 
 
         const Total = SubTotal + Number(invoice.Other_charges) + Number(invoice.Internet_subscription);
         console.log('Total', Total)
 
-        const LatePayment = Total + Number(invoice.Late_payment);
-        console.log('LatePayment', LatePayment)
+        // const LatePayment = Total + Number(invoice.Late_payment);
+        // console.log('LatePayment', LatePayment)
 
         setInvoice((prev) => ({
             ...prev,
             Sub_total: SubTotal,
             Total: Total,
-            Late_payment: LatePayment,
+            // Late_payment: LatePayment,
 
         }))
 
@@ -66,13 +66,13 @@ const InvoicePage = () => {
                         <div className="h-full w-full bg-[#165F6C] flex justify-between items-center p-2 rounded-xl">
                             {/* Logo here */}
                             <div className="h-full w-50  flex  justify-center items-center ">
-                                <h1 className="text-3xl text-[white] font-bold">Plaza Logo</h1>
+                                <h1 className="text-3xl text-[white] font-bold">Six Star Plaza</h1>
                             </div>
 
                             {/* Sub header Details */}
-                            <div className="h-full w-50   text-white flex justify-end items-end flex-col">
-                                <p>0300-80808080</p>
-                                <p>Near Gajumath Fasil Town</p>
+                            <div className="h-full w-60   text-white flex justify-end items-end flex-col">
+                                <p>0321 4034506</p>
+                                <p className="text-nowrap">Gajumatah Faisal Town Main Gol Chakar</p>
                             </div>
                         </div>
 
@@ -92,8 +92,8 @@ const InvoicePage = () => {
                                 <p className="font-semibold pt-1"><strong>Due Date: </strong >{dayjs(invoice.Due_date).format("MMM-DD-YYYY")}</p>
                             </div>
                             <div>
-                                <p className="pt-1"><strong>Reference No:</strong> {invoice.Reference_no}</p>
-                                <p className="pt-1"><strong>Meter:</strong> {invoice.Meter_no}</p>
+                                <p className="pt-1"><strong>Shop No:</strong> {invoice.Shop_no}</p>
+                                <p className="pt-1"><strong>Meter:</strong> {invoice.Shop_no}</p>
                             </div>
                         </div>
 
@@ -147,8 +147,8 @@ const InvoicePage = () => {
                                         <span>{invoice.Unit_price || '0'}</span>
                                     </div>
                                     <div className="flex justify-between border py-1 px-3  ">
-                                        <span>Tax:</span>
-                                        <span>{invoice.Tax || '0'}</span>
+                                        <span>Rent:</span>
+                                        <span>{invoice.Rent || '0'}</span>
                                     </div>
                                     <div className="flex justify-between border py-2 px-3    font-bold ">
                                         <span>Sub Total:</span>
@@ -170,10 +170,10 @@ const InvoicePage = () => {
                                         <span>Total:</span>
                                         <span>{invoice.Total}</span>
                                     </div>
-                                    <div className="flex justify-between border  py-2 px-3 font-bold text-red-600 ">
-                                        <span>Late Payment:</span>
+                                    {/* <div className="flex justify-between border  py-2 px-3 font-bold text-red-600 ">
+                                         <span>Late Payment:</span>
                                         <span>{Math.trunc(invoice.Late_payment) || '0'}</span>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
 

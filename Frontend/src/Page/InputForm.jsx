@@ -10,7 +10,7 @@ function InputForm() {
     const navigate = useNavigate();
 
     const handleChnange = (e) => {
-        
+
         const { id, value } = e.target;
         setInvoice((preveState) => ({
             ...preveState, [id]: value,
@@ -42,15 +42,18 @@ function InputForm() {
                         <input type="text" id="Bill_to" className="bg-gray-50  text-gray-900 text-sm rounded-lg  block w-full p-2.5 " onChange={handleChnange} placeholder="Enter name" required />
                     </div>
 
-                    <div className="mb-5">
-                        <label htmlFor="Meter_no" className="block mb-3 text-sm font-medium text-white">Meter No <span className='text-[11px] pl-2 italic'>(Required)</span></label>
-                        <input type="number" min={0} id="Meter_no" className="bg-gray-50 border  text-gray-900 text-sm rounded-lg  block w-full p-2.5 " onChange={handleChnange} placeholder='Meter no' required />
-                    </div>
 
                     <div className="mb-5">
-                        <label htmlFor="Reference_no" className="block mb-3 text-sm font-medium text-white">Reference no <span className='text-[11px] pl-2 italic'>(Optional)</span></label>
-                        <input type="text" id="Reference_no" className="bg-gray-50 border  text-gray-900 text-sm rounded-lg  block w-full p-2.5 " onChange={handleChnange} placeholder='Reference no' />
+                        <label htmlFor="Shop_no" className="block mb-3 text-sm font-medium text-white">Shop No <span className='text-[11px] pl-2 italic'>(Required)</span></label>
+                        <input type="text" id="Shop_no" className="bg-gray-50 border  text-gray-900 text-sm rounded-lg  block w-full p-2.5 " onChange={handleChnange} placeholder='Shop no' />
                     </div>
+
+
+                    <div className="mb-5">
+                        <label htmlFor="Meter_no" className="block mb-3 text-sm font-medium text-white">Meter No <span className='text-[11px] pl-2 italic'>(Required)</span></label>
+                        <input type="text" min={0} id="Meter_no" className="bg-gray-50 border  text-gray-900 text-sm rounded-lg  block w-full p-2.5 " onChange={handleChnange} placeholder='Meter no'  />
+                    </div>
+
 
 
                     <div className="mb-5">
@@ -68,8 +71,8 @@ function InputForm() {
 
 
                     <div className="mb-5">
-                        <label htmlFor="Tax" className="block mb-3 text-sm font-medium text-white">Tax <span className='text-[11px] pl-2 italic'>(Optional)</span></label>
-                        <input type="number" id="Tax" className="bg-gray-50 border  text-gray-900 text-sm rounded-lg  block w-full p-2.5 " onChange={handleChnange} placeholder='Tax Amount' />
+                        <label htmlFor="Rent" className="block mb-3 text-sm font-medium text-white">Rent <span className='text-[11px] pl-2 italic'>(Optional)</span></label>
+                        <input type="number" id="Rent" className="bg-gray-50 border  text-gray-900 text-sm rounded-lg  block w-full p-2.5 " onChange={handleChnange} placeholder='Rent Amount' />
                     </div>
 
 
